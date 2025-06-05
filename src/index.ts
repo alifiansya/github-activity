@@ -18,7 +18,6 @@ async function main() {
         const json = await events.json();
         const eventJson = json as Array<ActivityEvent>;
         
-        console.log(eventJson);
         eventJson.forEach(event => {
             console.log(getActivityList(event))
         });
