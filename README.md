@@ -1,4 +1,4 @@
-# task-tracker
+# github-activity
 A simple CLI-Based blazingly fast [Github Activity Viewer](https://roadmap.sh/projects/github-activity) with GitHub API event endpoints as a solution to roadmap.sh projects. Built with Bun JS runtime and typescript ⚡⚡⚡
 
 ## Requirements
