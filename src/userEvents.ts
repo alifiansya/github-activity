@@ -37,11 +37,26 @@ export function getActivityList(event: ActivityEvent) : string {
         case "DeleteEvent":
             message = `Deleted ${event.payload.ref_type + ` ` + event.payload.ref} a pull request in ${event.repo.name}`
             break;
-        case "CommitCommentEvent":
+        case "ForkEvent":
+            message = `Forked ${event.payload.forkee.full_name} repository to ${event.repo.name}`
+            break;
+        case "GollumEvent":
+            event.payload.pages.forEach(page => {
+                message += `${page.action} ${page.page_name},`
+            });
+            message += `in ${event.repo.name}`;
             break;
         case "CommitCommentEvent":
+            message = `${event.payload.action} a comment in ${event.repo.name}`
             break;
-        case "CommitCommentEvent":
+        case "PublicEvent":
+            message = `Changed ${event.repo.name} to public`
+            break;
+        case "PullRequestReviewEvent":
+            message = `${event.payload.action} a pull request review in ${event.repo.name}`
+            break;
+        case "PullRequestReviewCommentEvent":
+            message = `${event.payload.action} a pull request review comment in ${event.repo.name}`
             break;
     } 
     return eventTime + message;
